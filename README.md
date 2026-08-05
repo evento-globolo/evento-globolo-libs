@@ -1,9 +1,21 @@
-# evento-globolo-libs
+# evento-globolo-libs (superseded)
 
-Reusable event, venue, attendee, provider, cross-posting, and policy libraries.
+> This repository is frozen. The canonical source of truth is [`evgl-libs`](https://github.com/evento-globolo/evgl-libs).
 
-Initialized through `DEN-1889` as a testable `libs` foundation. Product behavior continues through focused pull requests.
+The organization was bootstrapped with both short-name and full-name scaffolds. The short repository is the canonical implementation and package identity. This repository remains available only for history and provenance.
 
-```bash
-python3 scripts/verify_repo.py
-```
+## Migrate
+
+- Open issues, pull requests, releases, and new work in `evento-globolo/evgl-libs`.
+- Change Zed dependencies to `"evento-globolo/evgl-libs" = "^0.1.0"`.
+- Point any retained submodule at `evento-globolo/evgl-libs` and classify it according to the canonical monorepo's composition policy.
+- Prefer Zed packages for dependencies and use:
+
+  ```bash
+  git submodule update --init --recursive
+  zed install --git-submodules
+  ```
+
+Do not source the same repository through both Zed and a gitlink.
+
+The root `.zpkg.toml` is removed by this consolidation so the long-name repository cannot continue as a competing Zed package identity. Its Git history remains intact; genuinely unique changes should be ported to the canonical repository in a reviewed PR before an organization administrator archives this repository.
